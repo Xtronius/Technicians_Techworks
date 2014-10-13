@@ -3,6 +3,7 @@ package mod.xtronius.ttm.handlers;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import mod.xtronius.ttm.block.*;
 import mod.xtronius.ttm.block.BlockIDs;
 import mod.xtronius.ttm.core.TTM;
 import mod.xtronius.ttm.lib.Reference;
@@ -22,7 +23,9 @@ public class BlockInitializer {
 		init();
 	}
 	
-	private void init() {}
+	private void init() {
+		addBlock(new BlockPipe(), "BlockPipe", true);
+	}
 	
 	private void addBlock(Block block, String name, boolean addBlockToCreativeTab) { 
 		block.setBlockName(name); 

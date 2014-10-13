@@ -1,14 +1,14 @@
 package mod.xtronius.ttm.block;
 
-import net.minecraft.block.Block;
+import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public abstract class HTSMBlock extends Block{
+public abstract class TTMBlockContainer extends BlockContainer{
 
-	public HTSMBlock(Material material) {
+	public TTMBlockContainer(Material material) {
 		super(material);
 	}
 

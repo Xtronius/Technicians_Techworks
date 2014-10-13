@@ -1,13 +1,18 @@
 package mod.xtronius.ttm.proxy;
 
+import mod.xtronius.ttm.tileEntity.renderer.RenderPipe;
+import mod.xtronius.ttm.tileEntity.TileEntityPipe;
 import mod.xtronius.ttm.util.ClientSoundHelper;
 import mod.xtronius.ttm.util.KeyBindings;
+import cpw.mods.fml.client.registry.ClientRegistry;
 
 
 public class ClientProxy extends CommonProxy {
 	 
 	 @Override
-	 public void initRenderingAndTextures() {}
+	 public void initRenderingAndTextures() {
+		 ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPipe.class, new RenderPipe());
+	 }
 	 
 	 @Override
 	 public void initSounds() {}

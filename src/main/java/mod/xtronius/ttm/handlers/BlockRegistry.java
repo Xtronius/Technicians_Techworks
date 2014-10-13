@@ -1,5 +1,6 @@
 package mod.xtronius.ttm.handlers;
 
+import mod.xtronius.ttm.tileEntity.*;
 import mod.xtronius.ttm.core.TTM;
 import net.minecraft.block.Block;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -22,5 +23,6 @@ public class BlockRegistry {
 	
 	private void regBlockManual() {
 //		GameRegistry.registerTileEntity(TileEntityExample.class, "BlockExample");
+		GameRegistry.registerTileEntity(TileEntityPipe.class,  "BlockPipe");
 	}
 }
