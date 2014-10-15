@@ -5,12 +5,18 @@ import mod.xtronius.ttm.tileEntity.TileEntityPipe;
 import mod.xtronius.ttm.util.ClientSoundHelper;
 import mod.xtronius.ttm.util.KeyBindings;
 import cpw.mods.fml.client.registry.ClientRegistry;
+import cpw.mods.fml.client.registry.RenderingRegistry;
 
 
 public class ClientProxy extends CommonProxy {
+	
+	public static int renderPass;
+	
+	public static int pipeID;
 	 
 	 @Override
 	 public void initRenderingAndTextures() {
+		 pipeID = RenderingRegistry.getNextAvailableRenderId();
 		 ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPipe.class, new RenderPipe());
 	 }
 	 

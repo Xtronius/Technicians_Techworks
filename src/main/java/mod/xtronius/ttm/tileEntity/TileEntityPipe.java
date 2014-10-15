@@ -2,6 +2,7 @@ package mod.xtronius.ttm.tileEntity;
 
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ISidedInventory;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
@@ -11,9 +12,31 @@ public class TileEntityPipe extends TileEntity {
 	
 	public TileEntityPipe() {}
 	
-	public void updateEntity() {
-		this.updateConnections();
-	}
+	public void updateEntity() {}
+	
+	public void readFromNBT(NBTTagCompound compound) {
+        super.readFromNBT(compound);
+        
+        NBTTagCompound blockDataTag = (NBTTagCompound) compound.getTag("BlockData");
+        
+        for(int i = 0; i < this.connections.length; i++) {
+        	if(blockDataTag.hasKey(String.valueOf(i))) 
+        		this.connections[i] = ForgeDirection.getOrientation(blockDataTag.getByte(String.valueOf(i)));
+        }
+    }
+
+    public void writeToNBT(NBTTagCompound compound) {
+        super.writeToNBT(compound);
+        
+        NBTTagCompound blockDataTag = new NBTTagCompound();
+        
+        for(int i = 0; i < this.connections.length; i++) {
+        	if(this.connections[i] != null)
+        		blockDataTag.setByte(String.valueOf(i), (byte)this.connections[i].ordinal());
+        }
+        
+        compound.setTag("BlockData", blockDataTag);
+    }
 	
 	public void updateConnections() {
 		if(this.worldObj.getTileEntity(this.xCoord, this.yCoord+1, this.zCoord) instanceof TileEntityPipe || this.worldObj.getTileEntity(this.xCoord, this.yCoord+1, this.zCoord) instanceof IInventory || this.worldObj.getTileEntity(this.xCoord, this.yCoord+1, this.zCoord) instanceof ISidedInventory) connections[0] = ForgeDirection.UP;

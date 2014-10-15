@@ -42,4 +42,6 @@ public class Reference {
      * 	The String for gui textures
      */
     public static final String MOD_ASSET = "ttm";
+    
+    public static final String MOD_OPTIONS = "mod-options";
 }

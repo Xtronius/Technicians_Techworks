@@ -10,7 +10,7 @@ import cpw.mods.fml.client.config.GuiConfig;
 public class ModGuiConfigs extends GuiConfig {
     public ModGuiConfigs(GuiScreen guiScreen) {
         super(guiScreen,
-                new ConfigElement(ConfigHandler.config.getCategory(Configuration.CATEGORY_GENERAL)).getChildElements(),
+                new ConfigElement(ConfigHandler.config.getCategory(Reference.MOD_OPTIONS)).getChildElements(),
                 Reference.MOD_ID,
                 false,
                 false,

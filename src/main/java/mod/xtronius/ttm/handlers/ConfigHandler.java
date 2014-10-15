@@ -5,7 +5,6 @@ import java.io.File;
 import mod.xtronius.ttm.block.BlockIDs;
 import mod.xtronius.ttm.core.TTM;
 import mod.xtronius.ttm.item.ItemIDs;
-import mod.xtronius.ttm.lib.ConfigCategories;
 import mod.xtronius.ttm.lib.ConfigValues;
 import mod.xtronius.ttm.lib.Reference;
 import net.minecraftforge.common.config.Configuration;
@@ -25,10 +24,6 @@ public class ConfigHandler {
     private static void loadConfiguration() {
 		HandleConfigIDs();
 		HandleConfigOptions();
-		
-		ConfigValues.myConfigInteger = config.getInt("My Config Integer", Configuration.CATEGORY_GENERAL, ConfigValues.myConfigInteger, 0, Integer.MAX_VALUE, "An Integer!");
-		ConfigValues.myConfigString = config.getString("My Config String", Configuration.CATEGORY_GENERAL, ConfigValues.myConfigString, "A String!");
-		ConfigValues.myConfigBool = config.getBoolean("My Config Bool", Configuration.CATEGORY_GENERAL, ConfigValues.myConfigBool, "A Boolean!");
 
         if (config.hasChanged())
         	config.save();
@@ -39,12 +34,12 @@ public class ConfigHandler {
 		int idB = 2750;
 		int idGui = 1;
 
-		for(String name : TTM.htsmBlock.blockNames) BlockIDs.setBlockID(name, config.get(ConfigCategories.BLOCKIDS, name + "ID", idB++).getInt());  
-		for(String name : TTM.htsmItem.itemNames) ItemIDs.setItemID(name, config.get(ConfigCategories.ITEMIDS, name + "ID", idI++).getInt()); 	
+		for(String name : TTM.htsmBlock.blockNames) BlockIDs.setBlockID(name, config.get("block-ids", name + "ID", idB++).getInt());  
+		for(String name : TTM.htsmItem.itemNames) ItemIDs.setItemID(name, config.get("item-ids", name + "ID", idI++).getInt()); 	
 	}
 
 	private static void HandleConfigOptions() {
-		config.addCustomCategoryComment(ConfigCategories.RENDERING, "These value decide wheather or not to render and obj or particle or they control how to render an object or particle");
+		ConfigValues.refreshPipeConnectionListEveryTick = config.getBoolean("Resfresh Pipe Connections List Every Tick", Reference.MOD_OPTIONS, true, "This controls the rendering of how fast the pipe block will cange its block bounds and render direction. NOTE: This will not effect the server-side list or any functionality of the pipe block, it is mainly an option for users that have computers that cannot handle updating the connections list for all of the pipes in their world every tick!");
 	}
 
     @SubscribeEvent
