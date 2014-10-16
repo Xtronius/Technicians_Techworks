@@ -5,7 +5,6 @@ import net.minecraft.tileentity.TileEntity;
 public class TickingTileEntity extends TileEntity {
 
 	protected int timer = 0;
-	protected float seconds = 5.0f;
 	
 	public void updateEntity() {
 		if(this.canUpdate()) {
@@ -22,9 +21,13 @@ public class TickingTileEntity extends TileEntity {
         return false;
     }
 	
+	public float getDelay() {
+		return 5.0f;
+	}
+	
 	/**The interval between each call of the intervalUpdate method*/
 	protected int getUpdateInterval() { 
-		return (int) (this.seconds * 20);
+		return (int) (this.getDelay() * 20);
 	}
 	
 	/**Ticks the timer*/

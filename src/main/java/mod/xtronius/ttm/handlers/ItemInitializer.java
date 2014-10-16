@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import mod.xtronius.ttm.core.TTM;
 import mod.xtronius.ttm.item.ItemIDs;
+import mod.xtronius.ttm.item.*;
 import mod.xtronius.ttm.lib.Reference;
 import net.minecraft.item.Item;
 
@@ -21,7 +22,9 @@ public class ItemInitializer {
 		init();
 	}
 	
-	private void init() {}
+	private void init() {
+		addItem(new ItemPSIMeter(), "ItemPSIMeter", true);
+	}
 	
 	private void addItem(Item item, String name, boolean addItemToCreativeTab) {
 		item.setUnlocalizedName(name);
