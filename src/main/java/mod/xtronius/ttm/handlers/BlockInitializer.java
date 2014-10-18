@@ -25,6 +25,7 @@ public class BlockInitializer {
 	
 	private void init() {
 		addBlock(new BlockPipe(), "BlockPipe", true);
+		addBlock(new BlockPSIGuage(), "BlockPSIGuage", true);
 	}
 	
 	private void addBlock(Block block, String name, boolean addBlockToCreativeTab) { 

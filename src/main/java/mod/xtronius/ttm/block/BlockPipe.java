@@ -5,6 +5,7 @@ import java.util.Random;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import mod.xtronius.ttm.lib.ConfigValues;
+import mod.xtronius.ttm.lib.RenderTypes;
 import mod.xtronius.ttm.proxy.ClientProxy;
 import mod.xtronius.ttm.tileEntity.TileEntityPipe;
 import net.minecraft.block.Block;
@@ -48,9 +49,9 @@ public class BlockPipe extends TTMBlockContainer {
 
 		this.setBlockBounds(minX, minY, minZ, maxX, maxY, maxZ);
 
-		TileEntityPipe pipe = (TileEntityPipe) blockAccess.getTileEntity(x, y, z);
+		TileEntityPipe container = (TileEntityPipe) blockAccess.getTileEntity(x, y, z);
 
-		if(pipe != null) {
+		if(container != null) {
 			boolean u = false;
 			boolean d = false;
 			boolean n = false;
@@ -58,19 +59,19 @@ public class BlockPipe extends TTMBlockContainer {
 			boolean e = false;
 			boolean w = false;
 	
-			for (int h = 0; h < pipe.connections.length; h++) {
-				if (pipe.connections[h] != null) {
-					if (pipe.connections[h].equals(ForgeDirection.UP))
+			for (int h = 0; h < container.connections.length; h++) {
+				if (container.connections[h] != null) {
+					if (container.connections[h].equals(ForgeDirection.UP))
 						u = true;
-					if (pipe.connections[h].equals(ForgeDirection.DOWN))
+					if (container.connections[h].equals(ForgeDirection.DOWN))
 						d = true;
-					if (pipe.connections[h].equals(ForgeDirection.NORTH))
+					if (container.connections[h].equals(ForgeDirection.NORTH))
 						n = true;
-					if (pipe.connections[h].equals(ForgeDirection.SOUTH))
+					if (container.connections[h].equals(ForgeDirection.SOUTH))
 						s = true;
-					if (pipe.connections[h].equals(ForgeDirection.EAST))
+					if (container.connections[h].equals(ForgeDirection.EAST))
 						e = true;
-					if (pipe.connections[h].equals(ForgeDirection.WEST))
+					if (container.connections[h].equals(ForgeDirection.WEST))
 						w = true;
 				}
 			}
@@ -143,7 +144,7 @@ public class BlockPipe extends TTMBlockContainer {
 	}
 
 	public int getRenderType() {
-		return ClientProxy.pipeID;
+		return RenderTypes.BLOCK_PIPE;
 	}
 
 	public boolean isOpaqueCube() {

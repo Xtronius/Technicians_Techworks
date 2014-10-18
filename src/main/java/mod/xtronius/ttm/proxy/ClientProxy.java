@@ -1,6 +1,9 @@
 package mod.xtronius.ttm.proxy;
 
+import mod.xtronius.ttm.lib.RenderTypes;
+import mod.xtronius.ttm.tileEntity.renderer.RenderPSIGuage;
 import mod.xtronius.ttm.tileEntity.renderer.RenderPipe;
+import mod.xtronius.ttm.tileEntity.TileEntityPSIGuage;
 import mod.xtronius.ttm.tileEntity.TileEntityPipe;
 import mod.xtronius.ttm.util.ClientSoundHelper;
 import mod.xtronius.ttm.util.KeyBindings;
@@ -11,13 +14,13 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 public class ClientProxy extends CommonProxy {
 	
 	public static int renderPass;
-	
-	public static int pipeID;
 	 
 	 @Override
 	 public void initRenderingAndTextures() {
-		 pipeID = RenderingRegistry.getNextAvailableRenderId();
+		 RenderTypes.BLOCK_PSIGUAGE = RenderingRegistry.getNextAvailableRenderId();
+		 RenderTypes.BLOCK_PIPE = RenderingRegistry.getNextAvailableRenderId();
 		 ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPipe.class, new RenderPipe());
+		 ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPSIGuage.class, new RenderPSIGuage());
 	 }
 	 
 	 @Override

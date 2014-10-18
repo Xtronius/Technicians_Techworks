@@ -23,7 +23,7 @@ public class ItemInitializer {
 	}
 	
 	private void init() {
-		addItem(new ItemPSIMeter(), "ItemPSIMeter", true);
+		addItem(new ItemPSIGuage(), "ItemPSIGuage", true);
 	}
 	
 	private void addItem(Item item, String name, boolean addItemToCreativeTab) {
