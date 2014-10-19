@@ -4,6 +4,7 @@ import java.util.Random;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import mod.xtronius.ttm.core.TTM;
 import mod.xtronius.ttm.lib.ConfigValues;
 import mod.xtronius.ttm.lib.RenderTypes;
 import mod.xtronius.ttm.proxy.ClientProxy;
@@ -12,9 +13,11 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.Facing;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -154,4 +157,17 @@ public class BlockPipe extends TTMBlockContainer {
 	public boolean renderAsNormalBlock() {
 		return false;
 	}
+	
+	@SideOnly(Side.CLIENT)
+    public boolean shouldSideBeRendered(IBlockAccess blockAccess, int x, int y, int z, int meta) {
+        Block block = blockAccess.getBlock(x, y, z);
+
+        if (this == TTM.Blocks.getBlockByName("BlockPipe")) {
+            if (blockAccess.getBlockMetadata(x, y, z) != blockAccess.getBlockMetadata(x - Facing.offsetsXForSide[meta], y - Facing.offsetsYForSide[meta], z - Facing.offsetsZForSide[meta])) {
+                return true;
+            }
+        }
+
+        return block == this ? false : super.shouldSideBeRendered(blockAccess, x, y, z, meta);
+    }
 }

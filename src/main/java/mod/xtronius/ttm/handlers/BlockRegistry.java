@@ -9,8 +9,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class BlockRegistry {
 	
 	public BlockRegistry() {
-		for(String name : TTM.htsmBlock.blockNames) { 
-			Block block = TTM.htsmBlock.blocks.get(name);
+		for(String name : TTM.Blocks.blockNames) { 
+			Block block = TTM.Blocks.blocks.get(name);
 			regBlockAuto(block, name);
 		}
 		

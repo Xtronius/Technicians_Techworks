@@ -34,8 +34,8 @@ public class ConfigHandler {
 		int idB = 2750;
 		int idGui = 1;
 
-		for(String name : TTM.htsmBlock.blockNames) BlockIDs.setBlockID(name, config.get("block-ids", name + "ID", idB++).getInt());  
-		for(String name : TTM.htsmItem.itemNames) ItemIDs.setItemID(name, config.get("item-ids", name + "ID", idI++).getInt()); 	
+		for(String name : TTM.Blocks.blockNames) BlockIDs.setBlockID(name, config.get("block-ids", name + "ID", idB++).getInt());  
+		for(String name : TTM.Items.itemNames) ItemIDs.setItemID(name, config.get("item-ids", name + "ID", idI++).getInt()); 	
 	}
 
 	private static void HandleConfigOptions() {

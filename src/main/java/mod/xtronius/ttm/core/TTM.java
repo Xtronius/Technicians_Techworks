@@ -37,8 +37,8 @@ public class TTM {
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
 	
 	public static IProxy proxy;
-	public static BlockInitializer htsmBlock = BlockInitializer.INSTANCE;
-	public static ItemInitializer htsmItem = ItemInitializer.INSTANCE;
+	public static BlockInitializer Blocks = BlockInitializer.INSTANCE;
+	public static ItemInitializer Items = ItemInitializer.INSTANCE;
 	
 	public static CreativeTabs tabItems = new CreativeTabHTSMItems(CreativeTabs.getNextID(), " Items");
 	public static CreativeTabs tabBlocks = new CreativeTabHTSMBlocks(CreativeTabs.getNextID(), " Blocks");

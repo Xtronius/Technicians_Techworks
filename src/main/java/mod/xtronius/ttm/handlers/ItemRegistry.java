@@ -7,8 +7,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class ItemRegistry {
 	
 	public ItemRegistry() {
-		for(String name : TTM.htsmItem.itemNames) { 
-			Item item = TTM.htsmItem.getItemByName(name);
+		for(String name : TTM.Items.itemNames) { 
+			Item item = TTM.Items.getItemByName(name);
 			regItemAuto(item, name);
 		}
 		
