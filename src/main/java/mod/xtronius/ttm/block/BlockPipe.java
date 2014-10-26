@@ -1,23 +1,10 @@
 package mod.xtronius.ttm.block;
 
-import java.util.Random;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import mod.xtronius.ttm.core.TTM;
-import mod.xtronius.ttm.lib.ConfigValues;
 import mod.xtronius.ttm.lib.RenderTypes;
-import mod.xtronius.ttm.proxy.ClientProxy;
 import mod.xtronius.ttm.tileEntity.TileEntityPipe;
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.Facing;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -27,19 +14,24 @@ public class BlockPipe extends TTMBlockContainer {
 	public BlockPipe() {
 		super(Material.ground);
 		this.useNeighborBrightness = true;
-		this.setTickRandomly(true);
 		float pixel = 1F / 16F;
 		this.setBlockBounds(10.5F * pixel / 2, 10.5F * pixel / 2, 10.5F * pixel / 2, 1 - 10.5F * pixel / 2, 1 - 10.5F * pixel / 2, 1 - 10.5F * pixel / 2);
 	}
 
 	public void setBlockBoundsBasedOnState(IBlockAccess blockAccess, int x, int y, int z) {
 		
-		if(ConfigValues.refreshPipeConnectionListEveryTick) {
-			TileEntityPipe tileEntity = (TileEntityPipe) blockAccess.getTileEntity(x, y, z);
-			if(tileEntity != null)
-				tileEntity.updateConnections();
-		}
-			
+		TileEntity tileEntity = null;
+		
+		try {
+			tileEntity = blockAccess.getTileEntity(x, y, z);
+		} catch(Exception e) {}
+		
+		TileEntityPipe pipe = null;
+		
+		if(tileEntity instanceof TileEntityPipe)
+			pipe = (TileEntityPipe) tileEntity;
+		
+		if(pipe == null) return;
 
 		float pixel = 1F / 16F;
 
@@ -52,94 +44,48 @@ public class BlockPipe extends TTMBlockContainer {
 
 		this.setBlockBounds(minX, minY, minZ, maxX, maxY, maxZ);
 
-		TileEntityPipe container = (TileEntityPipe) blockAccess.getTileEntity(x, y, z);
+		boolean u = false;
+		boolean d = false;
+		boolean n = false;
+		boolean s = false;
+		boolean e = false;
+		boolean w = false;
 
-		if(container != null) {
-			boolean u = false;
-			boolean d = false;
-			boolean n = false;
-			boolean s = false;
-			boolean e = false;
-			boolean w = false;
-	
-			for (int h = 0; h < container.connections.length; h++) {
-				if (container.connections[h] != null) {
-					if (container.connections[h].equals(ForgeDirection.UP))
-						u = true;
-					if (container.connections[h].equals(ForgeDirection.DOWN))
-						d = true;
-					if (container.connections[h].equals(ForgeDirection.NORTH))
-						n = true;
-					if (container.connections[h].equals(ForgeDirection.SOUTH))
-						s = true;
-					if (container.connections[h].equals(ForgeDirection.EAST))
-						e = true;
-					if (container.connections[h].equals(ForgeDirection.WEST))
-						w = true;
-				}
+		for (int h = 0; h < pipe.connections.length; h++) {
+			if (pipe.connections[h] != null) {
+				if (pipe.connections[h].equals(ForgeDirection.UP))
+					u = true;
+				if (pipe.connections[h].equals(ForgeDirection.DOWN))
+					d = true;
+				if (pipe.connections[h].equals(ForgeDirection.NORTH))
+					n = true;
+				if (pipe.connections[h].equals(ForgeDirection.SOUTH))
+					s = true;
+				if (pipe.connections[h].equals(ForgeDirection.EAST))
+					e = true;
+				if (pipe.connections[h].equals(ForgeDirection.WEST))
+					w = true;
 			}
-	
-			if (w)
-				this.minX = 0;
-			if (d)
-				this.minY = 0;
-			if (n)
-				this.minZ = 0;
-			if (e)
-				this.maxX = 1;
-			if (u)
-				this.maxY = 1;
-			if (s)
-				this.maxZ = 1;
 		}
+
+		if (w)
+			this.minX = 0;
+		if (d)
+			this.minY = 0;
+		if (n)
+			this.minZ = 0;
+		if (e)
+			this.maxX = 1;
+		if (u)
+			this.maxY = 1;
+		if (s)
+			this.maxZ = 1;
 	}
 
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
 		this.setBlockBoundsBasedOnState(world, x, y, z);
 		return super.getCollisionBoundingBoxFromPool(world, x, y, z);
-	}
-	
-	public int tickRate(World world) {
-        return 1;
-    }
-	
-	public void onBlockAdded(World world, int x, int y, int z) {
-		super.onBlockAdded(world, x, y, z);
-        this.updateConnections(world, x, y, z);
-    }
-	
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack stack) {
-		 this.updateConnections(world, x, y, z);
-	}
-	
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-		this.updateConnections(world, x, y, z);
-        return false;
-    }
-	
-	public boolean onBlockEventReceived(World world, int x, int y, int z, int par1, int par2) {
-		this.updateConnections(world, x, y, z);
-        return super.onBlockEventReceived(world, x, y, z, par1, par2);
-    }
-
-	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
-		this.updateConnections(world, x, y, z);
-	}
-	
-	public void updateTick(World world, int x, int y, int z, Random rand) {
-		this.updateConnections(world, x, y, z);
-	}
-	
-	@SideOnly(Side.CLIENT)
-    public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
-		this.updateConnections(world, x, y, z);
-    }
-	
-	private void updateConnections(World world, int x, int y, int z) {
-		TileEntityPipe tileEntity = (TileEntityPipe) world.getTileEntity(x, y, z);
-		if(tileEntity != null)
-			tileEntity.updateConnections();
 	}
 
 	public TileEntity createNewTileEntity(World world, int i) {
@@ -157,17 +103,4 @@ public class BlockPipe extends TTMBlockContainer {
 	public boolean renderAsNormalBlock() {
 		return false;
 	}
-	
-	@SideOnly(Side.CLIENT)
-    public boolean shouldSideBeRendered(IBlockAccess blockAccess, int x, int y, int z, int meta) {
-        Block block = blockAccess.getBlock(x, y, z);
-
-        if (this == TTM.Blocks.getBlockByName("BlockPipe")) {
-            if (blockAccess.getBlockMetadata(x, y, z) != blockAccess.getBlockMetadata(x - Facing.offsetsXForSide[meta], y - Facing.offsetsYForSide[meta], z - Facing.offsetsZForSide[meta])) {
-                return true;
-            }
-        }
-
-        return block == this ? false : super.shouldSideBeRendered(blockAccess, x, y, z, meta);
-    }
 }

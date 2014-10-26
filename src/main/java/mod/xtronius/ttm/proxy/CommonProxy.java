@@ -2,10 +2,13 @@ package mod.xtronius.ttm.proxy;
 
 import mod.xtronius.ttm.handlers.PacketHandler;
 import mod.xtronius.ttm.util.KeyBindings;
+import mod.xtronius.ttm.util.MultiBlockHelper;
 
 public abstract class CommonProxy implements IProxy{
 
-	public void initMiscInfo() {}
+	public void initMiscInfo() {
+		MultiBlockHelper.initMultiBlocks();
+	}
 
 	public void initRenderingAndTextures() {}
 

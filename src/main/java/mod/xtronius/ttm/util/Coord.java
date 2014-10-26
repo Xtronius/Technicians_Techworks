@@ -38,4 +38,16 @@ public class Coord {
 		this.z = z;
 		return this;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof Coord) {
+			Coord coord = (Coord) obj;
+			if(coord.getX() == this.getX())
+				if(coord.getY() == this.getY())
+					if(coord.getZ() == this.getZ())
+						return true;
+		}
+		return false;
+	}
 }

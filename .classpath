@@ -5,5 +5,11 @@
 	<classpathentry excluding="main/java/|main/resources/" kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Minecraft"/>
+	<classpathentry exported="true" kind="lib" path="D:/Programing/Modding/Modding Developement 1.7/forge-1.7.10-10.13.1.1217-src/lib/ForgeMultipart-1.7.10-1.1.0.311-dev.jar" sourcepath="D:/Programing/Modding/Modding Developement 1.7/forge-1.7.10-10.13.1.1217-src/lib/ForgeMultipart-1.7.10-1.1.0.311-src.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/Programing/Modding/Modding Developement 1.7/forge-1.7.10-10.13.1.1217-src/lib/CodeChickenCore-1.7.10-1.0.4.29-dev.jar" sourcepath="D:/Programing/Modding/Modding Developement 1.7/forge-1.7.10-10.13.1.1217-src/lib/CodeChickenCore-1.7.10-1.0.4.29-src.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/Programing/Modding/Modding Developement 1.7/forge-1.7.10-10.13.1.1217-src/lib/NotEnoughItems-1.7.10-1.0.2.15-dev.jar" sourcepath="D:/Programing/Modding/Modding Developement 1.7/forge-1.7.10-10.13.1.1217-src/lib/NotEnoughItems-1.7.10-1.0.2.15-src.jar"/>
+	<classpathentry kind="lib" path="D:/Programing/Modding/Modding Developement 1.7/forge-1.7.10-10.13.1.1217-src/lib/CodeChickenCore-1.7.10-1.0.4.29-src.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/Programing/Modding/Modding Developement 1.7/forge-1.7.10-10.13.1.1217-src/lib/NotEnoughItems-1.7.10-1.0.2.15-src.jar"/>
+	<classpathentry kind="lib" path="D:/Programing/Modding/Modding Developement 1.7/forge-1.7.10-10.13.1.1217-src/lib/CodeChickenLib-1.7.10-1.1.1.99-dev.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

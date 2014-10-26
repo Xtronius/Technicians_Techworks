@@ -1,30 +1,25 @@
 package mod.xtronius.ttm.block;
 
-import mod.xtronius.ttm.lib.Reference;
-import mod.xtronius.ttm.tileEntity.TileEntityPSIGuage;
+import mod.xtronius.ttm.tileEntity.TileEntityTank;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockPSIGuage extends TTMBlockContainer{
+public class BlockTank extends TTMBlockContainer{
 
-	public BlockPSIGuage() {
-		super(Material.rock);
-		this.setBlockTextureName("BlockPSIGuage");
+	public BlockTank() {
+		super(Material.iron);
+		this.setBlockTextureName("BlockTank");
 		this.useNeighborBrightness = true;
 	}
 
 	@Override
 	public TileEntity createNewTileEntity(World world, int p_149915_2_) {
-		return new TileEntityPSIGuage();
+		return new TileEntityTank();
 	}
 	
 	public int getRenderType() {
@@ -50,25 +45,5 @@ public class BlockPSIGuage extends TTMBlockContainer{
         if (l == 0) world.setBlockMetadataWithNotify(x, y, z, 3, 2);//SOUTH
         if (l == 3) world.setBlockMetadataWithNotify(x, y, z, 4, 2);//EAST
         if (l == 1) world.setBlockMetadataWithNotify(x, y, z, 5, 2);//WEST 
-    }
-	
-	@SideOnly(Side.CLIENT)
-    private IIcon sides;
-    @SideOnly(Side.CLIENT)
-    private IIcon front;
-    
-    @SideOnly(Side.CLIENT)
-    public IIcon getIcon(int side, int meta) {
-    	if(meta == 2 && side == 3) return this.front;
-    	if(meta == 3 && side == 2) return this.front;
-    	if(meta == 4 && side == 4) return this.front;
-    	if(meta == 5 && side == 5) return this.front;
-    	return this.sides;
-    }
-
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister) {
-        this.front = iconRegister.registerIcon(Reference.MOD_ASSET + ':' + this.textureName + "_Front");
-        this.sides = iconRegister.registerIcon(Reference.MOD_ASSET + ':' + this.textureName + "_Side");
     }
 }

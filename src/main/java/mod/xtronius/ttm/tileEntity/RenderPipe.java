@@ -3,6 +3,7 @@ package mod.xtronius.ttm.tileEntity;
 import mod.xtronius.ttm.lib.Reference;
 import mod.xtronius.ttm.proxy.ClientProxy;
 import mod.xtronius.ttm.tileEntity.TileEntityPipe;
+import mod.xtronius.ttm.util.DirHelper;
 import mod.xtronius.ttm.util.ResHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Tessellator;
@@ -33,7 +34,7 @@ public class RenderPipe extends TileEntitySpecialRenderer {
 		TileEntityPipe pipe = tileEntity;
 		this.bindTexture(texture);
 	
-		if(pipe.isOnlyConnectedOnOneAxis(pipe.connections)) {
+		if(DirHelper.doDirsOnlyPertainToOneAxis(pipe.connections)) {
 			for(int i = 0; i < pipe.connections.length; i++) 
 				if(pipe.connections[i] != null) { drawStraight(pipe.connections[i], x, y, z); break; }
 		} else {

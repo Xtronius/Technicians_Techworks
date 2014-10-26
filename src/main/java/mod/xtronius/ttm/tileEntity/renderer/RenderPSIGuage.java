@@ -32,7 +32,7 @@ public class RenderPSIGuage extends TileEntitySpecialRenderer {
 		GL11.glTranslated(x, y, z);
 		GL11.glDisable(GL11.GL_LIGHTING);
 		
-		int meta = tileEntity.blockMetadata;
+		int meta = tileEntity.getBlockMetadata();
 		
 		float rot = 0.0f;
         if (meta == 3) 

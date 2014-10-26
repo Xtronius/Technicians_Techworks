@@ -25,5 +25,6 @@ public class BlockRegistry {
 //		GameRegistry.registerTileEntity(TileEntityExample.class, "BlockExample");
 		GameRegistry.registerTileEntity(TileEntityPipe.class,  "BlockPipe");
 		GameRegistry.registerTileEntity(TileEntityPSIGuage.class,  "BlockPSIGuage");
+		GameRegistry.registerTileEntity(TileEntityTank.class,  "BlockTank");
 	}
 }

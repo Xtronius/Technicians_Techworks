@@ -3,6 +3,8 @@ package mod.xtronius.ttm.tileEntity.renderer;
 import mod.xtronius.ttm.lib.Reference;
 import mod.xtronius.ttm.proxy.ClientProxy;
 import mod.xtronius.ttm.tileEntity.TileEntityPipe;
+import mod.xtronius.ttm.tileEntity.psi.IPipe;
+import mod.xtronius.ttm.util.DirHelper;
 import mod.xtronius.ttm.util.ResHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Tessellator;
@@ -15,6 +17,12 @@ import org.lwjgl.opengl.GL11;
 
 public class RenderPipe extends TileEntitySpecialRenderer {
 	
+	public static RenderPipe instance;
+	
+	public RenderPipe() {
+		instance = this;
+	}
+	
 	float pixel = 1F/16F;
 	float texel = 1F/32F;
 	
@@ -23,23 +31,23 @@ public class RenderPipe extends TileEntitySpecialRenderer {
 	
 	@Override
 	public void renderTileEntityAt (TileEntity tileEntity, double x, double y, double z, float partialTicks) {
-		renderTileEntityAt( (TileEntityPipe)tileEntity, x, y, z, partialTicks);
+		if(tileEntity instanceof IPipe)
+		renderTileEntityAt((IPipe)tileEntity, x, y, z, partialTicks);
 	}
 	
-	public void renderTileEntityAt(TileEntityPipe tileEntity, double x, double y, double z, float partialTicks) {
+	public void renderTileEntityAt(IPipe pipe, double x, double y, double z, float partialTicks) {
 		GL11.glTranslated(x, y, z);
 		GL11.glDisable(GL11.GL_LIGHTING);
 		
-		TileEntityPipe pipe = tileEntity;
 		this.bindTexture(texture);
 	
-		if(pipe.isOnlyConnectedOnOneAxis(pipe.connections)) {
-			for(int i = 0; i < pipe.connections.length; i++) 
-				if(pipe.connections[i] != null) { drawStraight(pipe.connections[i], x, y, z); break; }
+		if(DirHelper.doDirsOnlyPertainToOneAxis(pipe.getConnections())) {
+			for(int i = 0; i < pipe.getConnections().length; i++) 
+				if(pipe.getConnections()[i] != null) { drawStraight(pipe.getConnections()[i], x, y, z); break; }
 		} else {
 			this.drawCore(x, y, z);
-			for(int i = 0; i < pipe.connections.length; i++) 
-				if(pipe.connections[i] != null) drawConnection(pipe.connections[i], true, x, y, z);
+			for(int i = 0; i < pipe.getConnections().length; i++) 
+				if(pipe.getConnections()[i] != null) drawConnection(pipe.getConnections()[i], true, x, y, z);
 		}
 			
 		GL11.glEnable(GL11.GL_LIGHTING);

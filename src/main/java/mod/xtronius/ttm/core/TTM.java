@@ -9,6 +9,7 @@ import mod.xtronius.ttm.handlers.EventInitializer;
 import mod.xtronius.ttm.handlers.GuiHandler;
 import mod.xtronius.ttm.handlers.ItemInitializer;
 import mod.xtronius.ttm.handlers.ItemRegistry;
+import mod.xtronius.ttm.handlers.MultiPartHandler;
 import mod.xtronius.ttm.handlers.PacketHandler;
 import mod.xtronius.ttm.lib.Reference;
 import mod.xtronius.ttm.proxy.IProxy;
@@ -17,6 +18,7 @@ import net.minecraft.command.ICommandManager;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.server.MinecraftServer;
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -69,6 +71,9 @@ public class TTM {
 		new BlockRegistry();
 		new ItemRegistry();
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
+		
+		if (Loader.isModLoaded("ForgeMultipart"))
+			new MultiPartHandler().init();
 	}
     	
     @EventHandler
