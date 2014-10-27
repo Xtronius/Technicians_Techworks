@@ -1,10 +1,8 @@
 package mod.xtronius.ttm.proxy;
 
 import mod.xtronius.ttm.lib.RenderTypes;
-import mod.xtronius.ttm.tileEntity.renderer.RenderPSIGuage;
-import mod.xtronius.ttm.tileEntity.renderer.RenderPipe;
-import mod.xtronius.ttm.tileEntity.TileEntityPSIGuage;
-import mod.xtronius.ttm.tileEntity.TileEntityPipe;
+import mod.xtronius.ttm.tileEntity.renderer.*;
+import mod.xtronius.ttm.tileEntity.*;
 import mod.xtronius.ttm.util.ClientSoundHelper;
 import mod.xtronius.ttm.util.KeyBindings;
 import cpw.mods.fml.client.registry.ClientRegistry;
@@ -21,6 +19,7 @@ public class ClientProxy extends CommonProxy {
 		 RenderTypes.BLOCK_PIPE = RenderingRegistry.getNextAvailableRenderId();
 		 ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPipe.class, new RenderPipe());
 		 ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPSIGuage.class, new RenderPSIGuage());
+		 ClientRegistry.bindTileEntitySpecialRenderer(TileEntityTank.class, new RenderPressureChamberCore());
 	 }
 	 
 	 @Override

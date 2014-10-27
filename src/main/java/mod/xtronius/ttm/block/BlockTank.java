@@ -23,7 +23,7 @@ public class BlockTank extends TTMBlockContainer{
 	}
 	
 	public int getRenderType() {
-		return 0;
+		return -1;
 	}
 
 	public boolean isOpaqueCube() {
@@ -31,7 +31,7 @@ public class BlockTank extends TTMBlockContainer{
 	}
 
 	public boolean renderAsNormalBlock() {
-		return true;
+		return false;
 	}
 	
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
