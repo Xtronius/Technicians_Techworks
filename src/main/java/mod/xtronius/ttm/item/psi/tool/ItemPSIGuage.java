@@ -1,6 +1,6 @@
-package mod.xtronius.ttm.item;
+package mod.xtronius.ttm.item.psi.tool;
 
-import mod.xtronius.ttm.tileEntity.psi.IPSIContainer;
+import mod.xtronius.ttm.tileEntity.psi.type.IPSIContainer;
 import mod.xtronius.ttm.util.ColorHelper;
 import mod.xtronius.ttm.util.PlayerHelper;
 import net.minecraft.entity.player.EntityPlayer;

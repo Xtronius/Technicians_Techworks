@@ -1,7 +1,7 @@
  package mod.xtronius.ttm.packets;
 
 import io.netty.buffer.ByteBuf;
-import mod.xtronius.ttm.tileEntity.TileEntityPSIGuage;
+import mod.xtronius.ttm.tileEntity.psi.TileEntityPSIGuage;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;

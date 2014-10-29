@@ -4,9 +4,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import mod.xtronius.ttm.block.*;
-import mod.xtronius.ttm.block.BlockIDs;
+import mod.xtronius.ttm.block.basicBlocks.connectedTexture.BlockTankGlass;
+import mod.xtronius.ttm.block.basicBlocks.connectedTexture.BlockWoodTrimmedGlass;
+import mod.xtronius.ttm.block.psi.misc.BlockPSIGuage;
+import mod.xtronius.ttm.block.psi.storage.BlockTank;
+import mod.xtronius.ttm.block.psi.transport.BlockPipe;
 import mod.xtronius.ttm.core.TTM;
 import mod.xtronius.ttm.lib.Reference;
+import mod.xtronius.ttm.util.BlockIDs;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import cpw.mods.fml.common.registry.GameRegistry;

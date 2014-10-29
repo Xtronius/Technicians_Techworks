@@ -1,4 +1,4 @@
-package mod.xtronius.ttm.item;
+package mod.xtronius.ttm.util;
 
 import java.util.HashMap;
 

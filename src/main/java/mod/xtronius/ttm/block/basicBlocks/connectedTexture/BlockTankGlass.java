@@ -1,21 +1,21 @@
-package mod.xtronius.ttm.block;
+package mod.xtronius.ttm.block.basicBlocks.connectedTexture;
 
-import java.util.List;
 import java.util.Random;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import mod.xtronius.ttm.lib.Reference;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockGlass;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 
-public class BlockConnected extends BlockGlass {
+public class BlockTankGlass extends BlockConnected {
+
+	public BlockTankGlass() {
+		super(Material.glass, false);
+	    this.setStepSound(Block.soundTypeStone);
+		this.setBlockTextureName("BlockTankGlass");
+	}
 	
 	public static IIcon[] textures = new IIcon[47];
 	public static int[] textureRefByID = { 0, 0, 6, 6, 0, 0, 6, 6, 3, 3, 19, 15, 3, 3, 19, 15, 1, 1, 18, 18, 1, 1,
@@ -31,10 +31,6 @@ public class BlockConnected extends BlockGlass {
 		                                    17, 17, 22, 26, 7, 7, 24, 24, 7, 7, 10, 10, 29, 29, 44, 41, 29, 29, 39,
 		                                    33, 4, 4, 5, 5, 4, 4, 5, 5, 9, 9, 30, 12, 9, 9, 30, 12, 7, 7, 24, 24,
 		                                    7, 7, 10, 10, 8, 8, 36, 35, 8, 8, 34, 11 };
-
-	public BlockConnected(Material material, boolean shouldRenderInside) {
-	     super(material, shouldRenderInside);
-	}
 	
 	public int quantityDropped(Random rand) {
         return 1;
@@ -56,8 +52,7 @@ public class BlockConnected extends BlockGlass {
                  bitMatrix[5] = world.getBlock(x-1, y, z+1) == this;
                  bitMatrix[6] = world.getBlock(x, y, z+1) == this;
                  bitMatrix[7] = world.getBlock(x+1, y, z+1) == this;
-         }
-         if (side == 2 || side == 3) {
+         } else if (side == 2 || side == 3) {
                  bitMatrix[0] = world.getBlock(x+(side==2?1:-1), y+1, z) == this;
                  bitMatrix[1] = world.getBlock(x, y+1, z)                      == this;
                  bitMatrix[2] = world.getBlock(x+(side==3?1:-1), y+1, z) == this;
@@ -66,8 +61,7 @@ public class BlockConnected extends BlockGlass {
                  bitMatrix[5] = world.getBlock(x+(side==2?1:-1), y-1, z) == this;
                  bitMatrix[6] = world.getBlock(x, y-1, z)                      == this;
                  bitMatrix[7] = world.getBlock(x+(side==3?1:-1), y-1, z) == this;
-         }
-         if (side == 4 || side == 5) {
+         } else if (side == 4 || side == 5) {
                  bitMatrix[0] = world.getBlock(x, y+1, z+(side==5?1:-1)) == this;
                  bitMatrix[1] = world.getBlock(x, y+1, z)                      == this;
                  bitMatrix[2] = world.getBlock(x, y+1, z+(side==4?1:-1)) == this;

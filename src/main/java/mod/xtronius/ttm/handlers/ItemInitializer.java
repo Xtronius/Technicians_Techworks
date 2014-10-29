@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import mod.xtronius.ttm.core.TTM;
-import mod.xtronius.ttm.item.ItemIDs;
 import mod.xtronius.ttm.item.*;
+import mod.xtronius.ttm.item.psi.tool.ItemPSIGuage;
 import mod.xtronius.ttm.lib.Reference;
+import mod.xtronius.ttm.util.ItemIDs;
 import net.minecraft.item.Item;
 
 

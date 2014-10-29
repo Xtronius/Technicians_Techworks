@@ -1,8 +1,8 @@
-package mod.xtronius.ttm.tileEntity;
+package mod.xtronius.ttm.tileEntity.psi;
 
+import mod.xtronius.ttm.tileEntity.psi.type.IPSIContainer;
 import mod.xtronius.ttm.util.ITimer;
 import mod.xtronius.ttm.core.TTM;
-import mod.xtronius.ttm.tileEntity.psi.IPSIContainer;
 import mod.xtronius.ttm.util.DimensionalPattern;
 import mod.xtronius.ttm.util.DimensionalPattern.BlockState;
 import mod.xtronius.ttm.util.DimensionalPattern.Layer;
@@ -26,20 +26,20 @@ public class TileEntityTank extends TileEntity implements IPSIContainer, ITimer 
 		timer.updateTimer();
 		if(this.dimensionalPattern == null) {
 			
-		 	Row row1 = DimensionalPattern.createRow("III");
-	        Row row2 = DimensionalPattern.createRow("IGI");
-	        Row row3 = DimensionalPattern.createRow("III");
+		 	Row row1 = DimensionalPattern.createRow("WWW");
+	        Row row2 = DimensionalPattern.createRow("WVW");
+	        Row row3 = DimensionalPattern.createRow("WWW");
 	 
-	        Row row4 = DimensionalPattern.createRow("IPI");
+	        Row row4 = DimensionalPattern.createRow("WPW");
 	        Row row5 = DimensionalPattern.createRow("PCP");
-	        Row row6 = DimensionalPattern.createRow("IPI");
+	        Row row6 = DimensionalPattern.createRow("WPW");
 	 
 	        Layer layer1 = DimensionalPattern.createLayer(row1, row2, row3);
 	        Layer layer2 = DimensionalPattern.createLayer(row4, row5, row6);
 	        Layer layer3 = DimensionalPattern.createLayer(row1, row2, row3);
 	 
-	        BlockState Frame = new BlockState(Character.valueOf('I'), Blocks.iron_block, 0, false);
-	        BlockState Glass = new BlockState(Character.valueOf('G'), Blocks.glass, 0, false);
+	        BlockState Frame = new BlockState(Character.valueOf('W'), Blocks.iron_block, 0, false);
+	        BlockState Glass = new BlockState(Character.valueOf('V'), Blocks.iron_bars, 0, false);
 	        BlockState Core = new BlockState(Character.valueOf('C'), TTM.Blocks.getBlockByName("BlockTank"), 0, false);
 	        BlockState PSIGuage = new BlockState(Character.valueOf('P'), TTM.Blocks.getBlockByName("BlockPSIGuage"), 0, false);
 	 
@@ -58,15 +58,10 @@ public class TileEntityTank extends TileEntity implements IPSIContainer, ITimer 
 				int y = this.yCoord-1;
 				int z = this.zCoord-1;
 				
-				if (this.dimensionalPattern.hasFormed(this.worldObj, x, y, z)) {
-					this.worldObj.setBlock(xCoord, yCoord + 2, zCoord, Blocks.redstone_block);
-					this.worldObj.setBlock(xCoord, yCoord + 3, zCoord, Blocks.redstone_lamp);
-					if(this.getCurrentPSI() < Double.MAX_VALUE) {
+				if (this.dimensionalPattern.hasFormed(this.worldObj, x, y, z)) 
+					if(this.getCurrentPSI() < Double.MAX_VALUE) 
 						this.setCurrentPSI(this.getCurrentPSI() + 1);
-					}
-				} else {
-					this.worldObj.setBlockToAir(xCoord, yCoord + 2, zCoord);
-					this.worldObj.setBlockToAir(xCoord, yCoord + 3, zCoord);
+				else {
 					this.setCurrentPSI(0.0);
 				}
 			}

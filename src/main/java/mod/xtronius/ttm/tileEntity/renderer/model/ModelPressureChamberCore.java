@@ -13,10 +13,10 @@ public class ModelPressureChamberCore {
     public static final String MODEL_LOCATION = "models/";
 
     public ModelPressureChamberCore() {
-    	modelPressureChamberCore = AdvancedModelLoader.loadModel(ResHelper.getResourceLocation(MODEL_LOCATION + "ModelPressureChamberCore_Rough_2.obj"));
+    	modelPressureChamberCore = AdvancedModelLoader.loadModel(ResHelper.getResourceLocation(MODEL_LOCATION + "ModelPressureChamberCore_2.obj"));
     }
 
     public void render() {
-    	modelPressureChamberCore.renderAll();
+//    	modelPressureChamberCore.renderAll();
     }
 }

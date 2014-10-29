@@ -1,4 +1,4 @@
-package mod.xtronius.ttm.block;
+package mod.xtronius.ttm.block.basicBlocks.connectedTexture;
 
 import java.util.Random;
 
@@ -9,12 +9,11 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 
-public class BlockTankGlass extends BlockConnected {
+public class BlockWoodTrimmedGlass extends BlockConnected {
 
-	public BlockTankGlass() {
+	public BlockWoodTrimmedGlass() {
 		super(Material.glass, false);
-	    this.setStepSound(Block.soundTypeStone);
-		this.setBlockTextureName("BlockTankGlass");
+		this.setBlockTextureName("woodGlass");
 	}
 	
 	public static IIcon[] textures = new IIcon[47];

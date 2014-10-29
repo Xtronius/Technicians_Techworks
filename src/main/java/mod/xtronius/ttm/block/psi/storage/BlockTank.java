@@ -1,6 +1,7 @@
-package mod.xtronius.ttm.block;
+package mod.xtronius.ttm.block.psi.storage;
 
-import mod.xtronius.ttm.tileEntity.TileEntityTank;
+import mod.xtronius.ttm.block.TTMBlockContainer;
+import mod.xtronius.ttm.tileEntity.psi.TileEntityTank;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;

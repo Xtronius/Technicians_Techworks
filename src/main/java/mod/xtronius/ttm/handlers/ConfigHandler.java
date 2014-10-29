@@ -2,11 +2,11 @@ package mod.xtronius.ttm.handlers;
 
 import java.io.File;
 
-import mod.xtronius.ttm.block.BlockIDs;
 import mod.xtronius.ttm.core.TTM;
-import mod.xtronius.ttm.item.ItemIDs;
 import mod.xtronius.ttm.lib.ConfigValues;
 import mod.xtronius.ttm.lib.Reference;
+import mod.xtronius.ttm.util.BlockIDs;
+import mod.xtronius.ttm.util.ItemIDs;
 import net.minecraftforge.common.config.Configuration;
 import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;

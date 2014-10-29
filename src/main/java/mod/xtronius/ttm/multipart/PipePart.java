@@ -3,11 +3,11 @@ package mod.xtronius.ttm.multipart;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import mod.xtronius.ttm.block.BlockPipe;
+import mod.xtronius.ttm.block.psi.transport.BlockPipe;
 import mod.xtronius.ttm.core.TTM;
-import mod.xtronius.ttm.tileEntity.psi.IConnectable;
-import mod.xtronius.ttm.tileEntity.psi.IPSIContainer;
-import mod.xtronius.ttm.tileEntity.psi.IPipe;
+import mod.xtronius.ttm.tileEntity.psi.type.IConnectable;
+import mod.xtronius.ttm.tileEntity.psi.type.IPSIContainer;
+import mod.xtronius.ttm.tileEntity.psi.type.IPipe;
 import mod.xtronius.ttm.tileEntity.renderer.RenderPipe;
 import mod.xtronius.ttm.util.Coord;
 import mod.xtronius.ttm.util.DirHelper;

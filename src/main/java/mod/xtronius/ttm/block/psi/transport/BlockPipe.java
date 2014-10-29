@@ -1,7 +1,8 @@
-package mod.xtronius.ttm.block;
+package mod.xtronius.ttm.block.psi.transport;
 
+import mod.xtronius.ttm.block.TTMBlockContainer;
 import mod.xtronius.ttm.lib.RenderTypes;
-import mod.xtronius.ttm.tileEntity.TileEntityPipe;
+import mod.xtronius.ttm.tileEntity.psi.TileEntityPipe;
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;

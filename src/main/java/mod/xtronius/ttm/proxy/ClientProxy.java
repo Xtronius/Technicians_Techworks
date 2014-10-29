@@ -1,6 +1,9 @@
 package mod.xtronius.ttm.proxy;
 
 import mod.xtronius.ttm.lib.RenderTypes;
+import mod.xtronius.ttm.tileEntity.psi.TileEntityPSIGuage;
+import mod.xtronius.ttm.tileEntity.psi.TileEntityPipe;
+import mod.xtronius.ttm.tileEntity.psi.TileEntityTank;
 import mod.xtronius.ttm.tileEntity.renderer.*;
 import mod.xtronius.ttm.tileEntity.*;
 import mod.xtronius.ttm.util.ClientSoundHelper;

@@ -26,6 +26,7 @@ public class RenderPressureChamberCore extends TileEntitySpecialRenderer {
         GL11.glDisable(GL11.GL_CULL_FACE);
         GL11.glPushMatrix();
         GL11.glTranslated(x, y, z);
+        GL11.glScalef(1.015625F, 1.015625F, 1.015625F);
         this.bindTexture(texture);
         modelPressureChamberCore.render();
         GL11.glPopMatrix();

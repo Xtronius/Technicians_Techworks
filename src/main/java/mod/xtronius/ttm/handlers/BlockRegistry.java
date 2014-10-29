@@ -1,6 +1,9 @@
 package mod.xtronius.ttm.handlers;
 
 import mod.xtronius.ttm.tileEntity.*;
+import mod.xtronius.ttm.tileEntity.psi.TileEntityPSIGuage;
+import mod.xtronius.ttm.tileEntity.psi.TileEntityPipe;
+import mod.xtronius.ttm.tileEntity.psi.TileEntityTank;
 import mod.xtronius.ttm.core.TTM;
 import net.minecraft.block.Block;
 import cpw.mods.fml.common.registry.GameRegistry;

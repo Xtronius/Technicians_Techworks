@@ -1,13 +1,13 @@
-package mod.xtronius.ttm.tileEntity;
+package mod.xtronius.ttm.tileEntity.psi;
 
 import java.util.ArrayList;
 
+import mod.xtronius.ttm.tileEntity.psi.type.IConnectable;
+import mod.xtronius.ttm.tileEntity.psi.type.IPSIContainer;
 import mod.xtronius.ttm.util.IntervalUpdater;
 import mod.xtronius.ttm.core.TTM;
 import mod.xtronius.ttm.multipart.PipePart;
 import mod.xtronius.ttm.packets.PacketPSI;
-import mod.xtronius.ttm.tileEntity.psi.IConnectable;
-import mod.xtronius.ttm.tileEntity.psi.IPSIContainer;
 import mod.xtronius.ttm.util.Coord;
 import mod.xtronius.ttm.util.DirHelper;
 import mod.xtronius.ttm.util.ITimer;

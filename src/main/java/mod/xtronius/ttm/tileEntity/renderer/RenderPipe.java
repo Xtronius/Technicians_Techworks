@@ -2,8 +2,8 @@ package mod.xtronius.ttm.tileEntity.renderer;
 
 import mod.xtronius.ttm.lib.Reference;
 import mod.xtronius.ttm.proxy.ClientProxy;
-import mod.xtronius.ttm.tileEntity.TileEntityPipe;
-import mod.xtronius.ttm.tileEntity.psi.IPipe;
+import mod.xtronius.ttm.tileEntity.psi.TileEntityPipe;
+import mod.xtronius.ttm.tileEntity.psi.type.IPipe;
 import mod.xtronius.ttm.util.DirHelper;
 import mod.xtronius.ttm.util.ResHelper;
 import net.minecraft.client.Minecraft;

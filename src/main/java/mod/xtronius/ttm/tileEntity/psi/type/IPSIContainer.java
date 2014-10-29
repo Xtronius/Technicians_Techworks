@@ -1,4 +1,4 @@
-package mod.xtronius.ttm.tileEntity.psi;
+package mod.xtronius.ttm.tileEntity.psi.type;
 
 public interface IPSIContainer {
 
